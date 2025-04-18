@@ -1,0 +1,41 @@
+@use './_variables' as vars;
+@use './containers';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// // Define a mixin with arguments
+// @mixin box-shadow($x, $y, $blur, $color) {
+//   box-shadow: $x $y $blur $color;
+// }
+
+// // Use the mixin with arguments
+// .card {
+//   @include box-shadow(0px, 4px, 10px, rgba(0, 0, 0, 0.2));
+// }
+
+/* GLOBAL STYLES */
+
+//IMG reset
+img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html {
+  font-family: vars.$FontFamily;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+
+body {
+  
+  @media (width > 600px) {
+
+  }
+}
