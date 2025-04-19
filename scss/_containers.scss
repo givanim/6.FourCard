@@ -66,27 +66,19 @@ header {
 }
 
 .card-container {
+  // MOBILE (flex)
   @include flex-space-around(column, 1rem);
+  padding: 0 2rem;
   width: 100%;
-  max-width: 1200px;
-  padding: 0 2rem 2rem;
-  margin-top: 1.5rem;
 
   @media (min-width: 960px) {
     display: grid;
-    grid-template-columns:
-      repeat(3, 1fr);
-    grid-template-rows:
-      repeat(2, 1fr);
-      width: 100%;
-    max-width: 1200px;
-    padding: 0 2rem 2rem;
-    margin-top: 1.5rem;
-    grid-template-areas:
-      "col1 col2.1 col2.2"; // Define the layout areas
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
   }
-
 }
+
 
 .card {
   width: 100%;
