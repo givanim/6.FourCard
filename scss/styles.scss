@@ -23,28 +23,30 @@ main {
   margin: 25px 0;
 
   h1 {
-    font-size: 1.2rem;
     color: vars.$Grey500;
     font-weight: 200;
     letter-spacing: 1.5px; //da cambiare con clamp se necessario;
     font-size: 1.2rem;
-    font-size: clamp(1.2rem, 1.0723591549295775rem + 0.5446009389671362vw, 1.5625rem);
+    font-size: clamp(1.2rem, 0.9887323943661971rem + 0.9014084507042254vw, 1.8rem);
   }
 
   h2 {
     font-size: 1.4rem;
-    font-size: clamp(1.4rem, 1.2987676056338027rem + 0.4319248826291081vw, 1.6875rem);
+    font-size: clamp(1.4rem, 1.223943661971831rem + 0.7511737089201878vw, 1.9rem);
     color: vars.$Grey500;
     font-weight: 600;
   }
 
   .main-descr {
+    width: clamp(20rem, 22.066rem + 11.737vi, 33.333rem);
     font-size: 0.9rem;
     font-size: clamp(0.9rem, 0.8867957746478874rem + 0.05633802816901406vw, 0.9375rem);
     color: vars.$Grey400;
     font-weight: 400;
     margin-top: 15px;
     margin-bottom: 30px;
+
+
   }
 
   .card-title {
@@ -62,43 +64,45 @@ main {
   .card-supervisor {
     @include mix.card-top-border-color(vars.$Cyan);
     @include mix.card-hover(vars.$Cyan);
-  
+
     @media (min-width: 960px) {
       grid-column: 1;
       grid-row: 1 / 3; // spans 2 rows
       align-self: center;
     }
   }
-  
+
   .card-team-builder {
     @include mix.card-top-border-color(vars.$Red);
     @include mix.card-hover(vars.$Red);
-  
+
     @media (min-width: 960px) {
+
       grid-column: 2;
       grid-row: 1;
     }
   }
-  
+
   .card-karma {
     @include mix.card-top-border-color(vars.$Orange);
     @include mix.card-hover(vars.$Orange);
-  
+
     @media (min-width: 960px) {
+
       grid-column: 2;
       grid-row: 2;
     }
   }
-  
+
   .card-calculator {
     @include mix.card-top-border-color(vars.$Blue);
     @include mix.card-hover(vars.$Blue);
-  
+
     @media (min-width: 960px) {
       grid-column: 3;
       grid-row: 1 / 3; // spans 2 rows
       align-self: center;
     }
   }
-  
+
 }

@@ -1,5 +1,6 @@
 @use './_variables' as vars;
 
+
 @mixin flex-center($direction: row, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -7,7 +8,6 @@
   align-items: center;
   gap: $gap;
 }
-
 @mixin flex-space-around($direction: row, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -15,12 +15,10 @@
   align-items: center;
   gap: $gap;
 }
-
 //top border color MIXIN 
 @mixin card-top-border-color($color: black) {
   border-top: 4px solid $color;
 }
-
 @mixin card-hover($color: black) {
   transition: transform 0.3s linear, box-shadow 0.3s linear; // Linear transition for both scale and shadow
 
@@ -31,17 +29,21 @@
     transform: scale(1.01);
   }
 }
+@mixin dynamic-width-height($width: 100%, $height: 240px) {
+  width: $width;
+  height: $height;
+}
+
 
 
 
 html {
   font-family: vars.$FontFamily;
-  min-height: 100vh;
+  min-width: vars.$MobileWidth;
   background-color: vars.$White;
   @include flex-center(column, 1rem);
 
   body {
-    min-width: vars.$MobileWidth;
     @include flex-center(column, 1rem);
   }
 }
@@ -58,7 +60,7 @@ header {
   user-select: none; // Prevent text selection
 
   @media (min-width: 600px) {
-    width: 60%;
+    width: 80%;
     text-align: center;
     margin: 0 auto;
   }
@@ -70,8 +72,10 @@ header {
   @include flex-space-around(column, 1rem);
   padding: 0 2rem;
   width: 100%;
-
+  margin: 0 auto;
   @media (min-width: 960px) {
+    width: clamp(960px, 80vw, 1400px);
+    margin: 2rem auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
@@ -91,6 +95,11 @@ header {
   padding: 1rem 2rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   user-select: none; // Prevent text selection
+
+  @media (min-width: 960px) {
+    padding: 0px 2rem;
+    width: clamp(75%, 90vw, 100%);
+  }
 
   .card-icon {
     flex-shrink: 0; // Prevent the icon from shrinking
