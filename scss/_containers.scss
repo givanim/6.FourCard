@@ -15,6 +15,7 @@
   align-items: center;
   gap: $gap;
 }
+
 //top border color MIXIN 
 @mixin card-top-border-color($color: black) {
   border-top: 4px solid $color;
@@ -41,7 +42,7 @@ html {
 
   body {
     min-width: vars.$MobileWidth;
-    @media (min-width: 600px) {}
+    @include flex-center(column, 1rem);
   }
 }
 
@@ -55,6 +56,13 @@ header {
   background-color: vars.$White;
   cursor: default;
   user-select: none; // Prevent text selection
+
+  @media (min-width: 600px) {
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
 }
 
 .card-container {
@@ -64,26 +72,39 @@ header {
   padding: 0 2rem 2rem;
   margin-top: 1.5rem;
 
-  .card {
-    width: 100%;
-    height: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: vars.$White;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    user-select: none; // Prevent text selection
-
-
-    .card-icon {
-      flex-shrink: 0; // Prevent the icon from shrinking
-      display: flex;
-      flex-direction: row;
-      justify-content: end; // Center the icon horizontally
-      
-    }
-
+  @media (min-width: 960px) {
+    display: grid;
+    grid-template-columns:
+      repeat(3, 1fr);
+    grid-template-rows:
+      repeat(2, 1fr);
+      width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem 2rem;
+    margin-top: 1.5rem;
+    grid-template-areas:
+      "col1 col2.1 col2.2"; // Define the layout areas
   }
+
+}
+
+.card {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: vars.$White;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  user-select: none; // Prevent text selection
+
+  .card-icon {
+    flex-shrink: 0; // Prevent the icon from shrinking
+    display: flex;
+    flex-direction: row;
+    justify-content: end; // Center the icon horizontally
+  }
+
 }
