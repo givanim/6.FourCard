@@ -1,76 +1,78 @@
 @use './_variables' as vars;
 @use './containers' as mix;
 
+
+// GLOBAL RESET
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-// // Define a mixin with arguments
-// @mixin box-shadow($x, $y, $blur, $color) {
-//   box-shadow: $x $y $blur $color;
-// }
-
-// // Use the mixin with arguments
-// .card {
-//   @include box-shadow(0px, 4px, 10px, rgba(0, 0, 0, 0.2));
-// }
-
-
-/* GLOBAL STYLES */
-
-//IMG reset
+// GLOBAL STYLES 
+// img reset
 img {
   max-width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-html {
-  font-family: vars.$FontFamily;
-  min-height: 100vh;
-  background-color: vars.$White;
-  @include mix.flex-center(column, 1rem);
-}
+// elements styles
+main {
 
-body {
-  @media (min-width: 600px) {}
-}
+  margin: 25px 0;
 
-h1 {
-  font-size: 1.2rem;
-  color: vars.$Grey500;
-  font-weight: 200;
-  letter-spacing: 1.5px; //da cambiare con clamp se necessario;
-}
+  h1 {
+    font-size: 1.2rem;
+    color: vars.$Grey500;
+    font-weight: 200;
+    letter-spacing: 1.5px; //da cambiare con clamp se necessario;
+  }
 
-h2 {
-  font-size: 1.4rem;
-  color: vars.$Grey500;
-  font-weight: 600;
-}
+  h2 {
+    font-size: 1.4rem;
+    color: vars.$Grey500;
+    font-weight: 600;
+  }
 
-.main-descr {
-  font-size: 0.9rem;
-  color: vars.$Grey400;
-  font-weight: 400;
-  margin-top: 15px;
-  margin-bottom: 30px;
-}
+  .main-descr {
+    font-size: 0.9rem;
+    color: vars.$Grey400;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
 
-.card-title {
-  font-size: 1.5rem;
-  color: vars.$Grey500;
-  font-weight: 600;
-}
+  .card-title {
+    font-size: 1.15rem;
+    color: vars.$Grey500;
+    font-weight: 600;
+  }
+
+  .card-descr {
+    font-size: 13px;
+    color: vars.$Grey400;
+    font-weight: 400;
+  }
 
 
-.card-descr {
-  font-size: vars.$FontSize;
-  color: vars.$Grey400;
-  font-weight: 400;
-}
+  .card-supervisor {
+    @include mix.card-top-border-color(vars.$Cyan);
+    @include mix.card-hover(vars.$Cyan);
+  }
 
-.figure {
+  .card-team-builder {
+    @include mix.card-top-border-color(vars.$Red);
+    @include mix.card-hover(vars.$Red);
+  }
+
+  .card-karma {
+    @include mix.card-top-border-color(vars.$Orange);
+    @include mix.card-hover(vars.$Orange);  
+  }
+
+  .card-calculator {
+    @include mix.card-top-border-color(vars.$Blue);
+    @include mix.card-hover(vars.$Blue);
+  }
 }
